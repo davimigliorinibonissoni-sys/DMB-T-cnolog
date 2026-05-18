@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>DMB Técnolog</title>
+    <meta name='description' content="Soluções em software, sistemas e sites para o seu negócio.">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animacoes.css">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        
+        <span>DMB Técnolog</span>
+        <button id="btn-menu" onclick="alternarMenu()">☰</button>
+        <ul id="menu-links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        
+        <div class="hero-badge">SOLUÇÕES EM TECNOLOGIA</div>
+
+        
+        <h1>DMB <span>Técnolog</span></h1>
+        <p>Software sob medida, sistemas e sites profissionais.<br>Da ideia à entrega, com qualidade e suporte próximo.</p>
+
+        
+        <div class="hero-btns">
+            <a href="#servicos" class="hero-btn-primary">Ver Serviços</a>
+            <a href="#contato" class="hero-btn-outline">Falar com a gente</a>
+        </div>
+    </header>
+
+    
+    <div class="stats">
+        <div class="stat">
+            <span class="contador" data-alvo="1" data-sufixo="+">0</span>
+            <p>Projetos entregues</p>
+        </div>
+        <div class="stat">
+            <span class="contador" data-alvo="100" data-sufixo="%">0</span>
+            <p>Satisfação</p>
+        </div>
+        <div class="stat">
+            <span class="contador" data-alvo="24" data-sufixo="h">0</span>
+            <p>Suporte rápido</p>
+        </div>
+    </div>
+
+    <main>
+
+        
+
+        <section id="servicos" class="card revelar">
+            <div class="card-tag">O que fazemos</div>
+            <h2>Serviços</h2>
+            <p>Criação e manutenção de sites</p>
+            <p>Desenvolvimento de sistemas de gerenciamento empresarial</p>
+        </section>
+
+        <section id="projetos" class="card revelar">
+            <div class="card-tag">Portfólio</div>
+            <h2>Projetos já desenvolvidos</h2>
+            <h3>Site Gigante Auto Peças</h3>
+            <p>Para acessar o site <a href="https://davimigliorinibonissoni-sys.github.io/gigante-autopecas/" target="_blank">Clique Aqui</a></p>
+        </section>
+
+        <section class="card revelar">
+            <div class="card-tag">Depoimentos</div>
+            <h2>Avaliações</h2>
+            <p>Em breve os depoimentos dos nossos clientes aparecerão aqui.</p>
+        </section>
+
+        <section id="feedback" class="card revelar">
+            <div class="card-tag">Feedback</div>
+            <h2>Deixe sua avaliação</h2>
+            <form>
+                <fieldset>
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" placeholder="Seu nome completo">
+
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com">
+
+                    <label for="comentarios">Comentário</label>
+                    <textarea name="comentarios" id="comentarios" rows="6" placeholder="Conte sua experiência..."></textarea>
+
+                    <p id="msg-erro" style="color: #e05555; display: none; margin-top: 0.8rem;"></p>
+                    <p id="msg-sucesso" style="color: #5DCAA5; display: none; margin-top: 0.8rem;"></p>
+
+                    <button type="button" onclick="validarFormulario()">Enviar Feedback</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <section id="contato" class="card revelar">
+            <div class="card-tag">Contato</div>
+            <h2>Fale com a gente</h2>
+            <p>WhatsApp: <a href="https://wa.me/5554999342764" target="_blank">(54) 99934-2764</a></p>
+            <p>E-mail: <a href="mailto:davimigliorinibonissoni@gmail.com">davimigliorinibonissoni@gmail.com</a></p>
+            
+        </section>
+
+    </main>
+
+    
+    <footer>
+        <p><strong>DMB Técnolog</strong> — Todos os direitos reservados © 2026</p>
+    </footer>
+
+    <button id="btn-topo" onclick="voltarTopo()">↑</button>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            navbar.classList.toggle('rolada', window.scrollY > 50);
+        });
+
+        function animarContador(elemento) {
+            const alvo = parseInt(elemento.dataset.alvo);
+            let atual = 0;
+            const incremento = alvo / (1500 / 16);
+            const intervalo = setInterval(function() {
+                atual += incremento;
+                if (atual >= alvo) { atual = alvo; clearInterval(intervalo); }
+                elemento.textContent = Math.floor(atual);
+            }, 16);
+        }
+
+        const observerContador = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    animarContador(entry.target);
+                    observerContador.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.contador').forEach(function(el) {
+            observerContador.observe(el);
+        });
+
+        function alternarMenu() {
+            document.getElementById('menu-links').classList.toggle('aberto');
+        }
+
+        function validarFormulario() {
+            const nome       = document.getElementById('name').value;
+            const email      = document.getElementById('email').value;
+            const comentario = document.getElementById('comentarios').value;
+            const msgErro    = document.getElementById('msg-erro');
+            const msgOk      = document.getElementById('msg-sucesso');
+
+            if (nome.trim() === '') {
+                msgErro.textContent = '⚠ Por favor, preencha seu nome.';
+                msgErro.style.display = 'block'; msgOk.style.display = 'none'; return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                msgErro.textContent = '⚠ Digite um e-mail válido.';
+                msgErro.style.display = 'block'; msgOk.style.display = 'none'; return;
+            }
+            if (comentario.trim() === '') {
+                msgErro.textContent = '⚠ Por favor, escreva um comentário.';
+                msgErro.style.display = 'block'; msgOk.style.display = 'none'; return;
+            }
+            msgErro.style.display = 'none';
+            msgOk.textContent = '✓ Feedback enviado com sucesso! Obrigado.';
+            msgOk.style.display = 'block';
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('comentarios').value = '';
+        }
+
+        const btnTopo = document.getElementById('btn-topo');
+        window.addEventListener('scroll', function() {
+            btnTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        function voltarTopo() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('visivel');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.revelar').forEach(function(el) { observer.observe(el); });
+    </script>
+
+</body>
+</html>
