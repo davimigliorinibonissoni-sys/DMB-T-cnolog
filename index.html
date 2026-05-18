@@ -80,7 +80,7 @@
         <section id="feedback" class="card revelar">
             <div class="card-tag">Feedback</div>
             <h2>Deixe sua avaliação</h2>
-            <form>
+            <form action="https://formspree.io/f/xbdblldg" method="post">
                 <fieldset>
                     <label for="name">Nome</label>
                     <input type="text" id="name" name="name" placeholder="Seu nome completo">
@@ -94,7 +94,7 @@
                     <p id="msg-erro" style="color: #e05555; display: none; margin-top: 0.8rem;"></p>
                     <p id="msg-sucesso" style="color: #5DCAA5; display: none; margin-top: 0.8rem;"></p>
 
-                    <button type="button" onclick="validarFormulario()">Enviar Feedback</button>
+                    <button type="submit" onclick="return validarFormulario()">Enviar Feedback</button>
                 </fieldset>
             </form>
         </section>
@@ -175,6 +175,8 @@
             document.getElementById('name').value = '';
             document.getElementById('email').value = '';
             document.getElementById('comentarios').value = '';
+
+            return true;
         }
 
         const btnTopo = document.getElementById('btn-topo');
