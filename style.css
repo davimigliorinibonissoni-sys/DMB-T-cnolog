@@ -1,4 +1,5 @@
 
+
 :root {
     --roxo-escuro:  #3C3489;
     --roxo-medio:   #533AB7;
@@ -7,13 +8,10 @@
     --verde:        #5DCAA5;
     --dark-navy:    #1a1a2e;
     --fundo-pagina: #f5f5fa;
-
-    
     --sombra-card:    0 4px 24px rgba(83, 58, 183, 0.08);
     --sombra-hover:   0 16px 40px rgba(83, 58, 183, 0.15);
     --gradiente-hero: linear-gradient(135deg, #2a2475 0%, #1a1a2e 100%);
 }
-
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -26,9 +24,10 @@ body {
     color: var(--dark-navy);
     animation: aparecer 0.6s ease;
     padding-top: 60px;
-
-   
     -webkit-font-smoothing: antialiased;
+
+    
+    overflow-x: hidden;
 }
 
 
@@ -52,7 +51,6 @@ body {
     color: #ffffff;
     letter-spacing: 1px;
 }
-
 
 #navbar span::before {
     content: '';
@@ -92,7 +90,6 @@ body {
 #menu-links a:hover { color: var(--verde); }
 #menu-links a::after { display: none; }
 
-
 #menu-links li:last-child a {
     background: var(--roxo-medio);
     color: #fff;
@@ -121,6 +118,9 @@ body {
     width: auto;
     padding: 0; margin: 0;
     transition: color 0.2s;
+
+    
+    padding: 8px;
 }
 
 #btn-menu:hover {
@@ -134,11 +134,10 @@ header {
     background: var(--gradiente-hero);
     color: #ffffff;
     text-align: center;
-    padding: 6rem 1rem 5rem;   
+    padding: 6rem 1rem 5rem;
     position: relative;
     overflow: hidden;
 }
-
 
 header::before {
     content: '';
@@ -148,9 +147,8 @@ header::before {
         linear-gradient(rgba(83,58,183,0.07) 1px, transparent 1px),
         linear-gradient(90deg, rgba(83,58,183,0.07) 1px, transparent 1px);
     background-size: 40px 40px;
-    pointer-events: none;     
+    pointer-events: none;
 }
-
 
 header::after {
     content: '';
@@ -160,12 +158,10 @@ header::after {
     pointer-events: none;
 }
 
-
 header h1, header p, .hero-badge {
     position: relative;
     z-index: 1;
 }
-
 
 .hero-badge {
     display: inline-flex;
@@ -185,17 +181,14 @@ header h1, header p, .hero-badge {
 
 header h1 {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(2.2rem, 6vw, 4rem); 
+    font-size: clamp(2.2rem, 6vw, 4rem);
     letter-spacing: 2px;
     line-height: 1.1;
     margin: 0 0 1rem;
     animation: descerDoTopo 0.6s 0.1s ease both;
 }
 
-
-header h1 span {
-    color: var(--verde);
-}
+header h1 span { color: var(--verde); }
 
 header p {
     color: var(--roxo-claro);
@@ -207,7 +200,6 @@ header p {
     line-height: 1.6;
     animation: descerDoTopo 0.6s 0.2s ease both;
 }
-
 
 .hero-btns {
     display: flex;
@@ -262,10 +254,10 @@ header p {
 
 .stats {
     display: flex;
-    gap: 0;                    
+    gap: 0;
     justify-content: center;
     flex-wrap: wrap;
-    background: #22206a;       
+    background: #22206a;
     border-top: 1px solid rgba(175,169,236,0.15);
     border-bottom: 1px solid rgba(175,169,236,0.15);
 }
@@ -275,8 +267,6 @@ header p {
     padding: 2rem 3rem;
     flex: 1;
     min-width: 140px;
-
-    
     border-right: 1px solid rgba(175,169,236,0.12);
 }
 
@@ -291,9 +281,8 @@ header p {
     line-height: 1;
 }
 
-
 .stat span::after {
-    content: attr(data-sufixo); 
+    content: attr(data-sufixo);
     font-size: 1.4rem;
     color: var(--roxo-claro);
     margin-left: 2px;
@@ -314,13 +303,13 @@ main {
 
 
 .card {
-    background-color: #ffffff;  
+    background-color: #ffffff;
     border-left: 4px solid var(--roxo-medio);
-    border-radius: 14px;        
+    border-radius: 14px;
     padding: 2.2rem 2.4rem;
     margin: 1.5rem auto;
     max-width: 800px;
-    box-shadow: var(--sombra-card);   
+    box-shadow: var(--sombra-card);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     cursor: default;
 }
@@ -329,7 +318,6 @@ main {
     transform: translateY(-6px);
     box-shadow: var(--sombra-hover);
 }
-
 
 .card-tag {
     display: inline-block;
@@ -382,7 +370,7 @@ label {
 input, textarea {
     width: 100%;
     padding: 12px 14px;
-    border: 1.5px solid #ddd; 
+    border: 1.5px solid #ddd;
     border-radius: 8px;
     font-size: 0.95rem;
     font-family: 'DM Sans', sans-serif;
@@ -390,12 +378,15 @@ input, textarea {
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     box-sizing: border-box;
+
+    
+    font-size: 16px;
 }
 
 input:focus, textarea:focus {
     border-color: var(--roxo-medio);
     box-shadow: 0 0 0 4px rgba(83, 58, 183, 0.08);
-    background: #fff;          
+    background: #fff;
 }
 
 
@@ -406,13 +397,16 @@ button {
     background-color: var(--roxo-medio);
     color: #ffffff;
     border: none;
-    border-radius: 50px;     
+    border-radius: 50px;
     font-size: 1rem;
     font-weight: 600;
     font-family: 'DM Sans', sans-serif;
     cursor: pointer;
     letter-spacing: 0.5px;
     transition: background-color 0.2s ease, transform 0.1s ease;
+
+    
+    min-height: 44px;
 }
 
 button:hover {
@@ -441,6 +435,7 @@ button:active { transform: scale(0.97); }
     z-index: 200;
     padding: 0;
     margin: 0;
+    min-height: unset; 
 }
 
 #btn-topo:hover {
@@ -486,11 +481,11 @@ a:hover::after { width: 100%; }
 }
 
 .btn-mapa {
-    display: inline-flex;     
+    display: inline-flex;
     align-items: center;
     gap: 6px;
     padding: 11px 22px;
-    border-radius: 50px;       
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -498,6 +493,7 @@ a:hover::after { width: 100%; }
     transition: opacity 0.2s, transform 0.15s;
     width: auto;
     margin-top: 0;
+    min-height: 44px; 
 }
 
 .btn-mapa:hover {
@@ -522,7 +518,6 @@ footer {
     font-size: 0.85rem;
     letter-spacing: 0.3px;
 }
-
 
 footer strong {
     color: #fff;
@@ -558,6 +553,8 @@ footer strong {
 
 
 @media (max-width: 600px) {
+
+    /* Navbar mobile */
     #btn-menu { display: block; }
 
     #menu-links {
@@ -566,25 +563,280 @@ footer strong {
         position: absolute;
         top: 60px; left: 0; right: 0;
         background: var(--dark-navy);
-        padding: 1rem 2rem;
-        gap: 1rem;
+        padding: 1.2rem 1.5rem;
+        gap: 0;                       
+    }
+
+    
+    #menu-links li {
+        border-bottom: 1px solid rgba(175,169,236,0.08);
+    }
+
+    #menu-links li:last-child {
+        border-bottom: none;
+    }
+
+    #menu-links li a {
+        display: block;                
+        padding: 14px 0;
+        font-size: 1rem;
     }
 
     #menu-links.aberto { display: flex; }
 
-    
     #menu-links li:last-child a {
         background: none;
-        padding: 0;
+        padding: 14px 0;
         color: var(--roxo-claro);
     }
 
-    header { padding: 4rem 1rem 3rem; }
-    header h1 { font-size: 2rem; }
-    header p  { font-size: 1rem; }
+    
+    header {
+        padding: 3.5rem 1.2rem 2.5rem;
+    }
 
-    .stat { padding: 1.5rem 1.5rem; }
-    .stat span { font-size: 2rem; }
+    header h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;           
+    }
 
-    .card { padding: 1.5rem; }
+    header p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-badge {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+        padding: 5px 14px;
+    }
+
+    
+    .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+        padding: 0 1rem;
+    }
+
+    .hero-btn-primary,
+    .hero-btn-outline {
+        text-align: center;
+        padding: 14px 20px;
+        font-size: 1rem;
+    }
+
+   
+    .stats {
+        
+        flex-direction: column;
+    }
+
+    .stat {
+        padding: 1.2rem 1.5rem;
+        border-right: none;                                  
+        border-bottom: 1px solid rgba(175,169,236,0.12);    
+        flex: none;
+    }
+
+    .stat:last-child { border-bottom: none; }
+
+    .stat span { font-size: 2.2rem; }
+
+    .stat p { font-size: 0.8rem; }
+
+    
+    .card {
+        padding: 1.4rem 1.2rem;
+        margin: 1rem 0.5rem;           
+        border-radius: 10px;
+
+       
+        transform: none !important;
+    }
+
+    .card h2 { font-size: 1.2rem; }
+
+    .card p  { font-size: 0.92rem; }
+
+    
+    input, textarea {
+        padding: 13px 14px;            
+    }
+
+    textarea {
+        
+        min-height: 120px;
+    }
+
+    
+    .mapa-btns {
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .btn-mapa {
+        justify-content: center;       
+        font-size: 0.85rem;
+        padding: 12px 10px;
+    }
+
+    
+    footer {
+        padding: 2rem 1rem;
+        font-size: 0.8rem;
+        margin-top: 2rem;
+    }
+
+    
+    #btn-topo {
+        bottom: 1.2rem;
+        right: 1.2rem;
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+    }
+}
+
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    header {
+        padding: 5rem 2rem 4rem;
+    }
+
+    .card {
+        margin: 1.5rem 1.5rem;
+        max-width: 100%;
+    }
+
+    .stat {
+        padding: 1.5rem 2rem;
+    }
+
+    
+    #navbar {
+        padding: 0 1.5rem;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+.projeto-card {
+    border: 1.5px solid rgba(83,58,183,0.1);
+    border-radius: 12px;
+    overflow: hidden;         /* garante que a imagem respeita o border-radius */
+    margin-top: 1rem;
+    transition: box-shadow 0.25s ease;
+}
+
+.projeto-card:hover {
+    box-shadow: 0 8px 32px rgba(83,58,183,0.12);
+}
+
+/* Área da imagem com overlay ao passar o mouse */
+.projeto-thumb {
+    position: relative;
+    display: block;           /* ocupa a largura toda */
+    overflow: hidden;
+    height: 220px;            /* altura fixa para todas as imagens */
+}
+
+.projeto-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* corta a imagem para preencher sem distorcer */
+    object-position: top;     /* mostra o topo do site (onde fica o header) */
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* Zoom suave na imagem ao passar o mouse */
+.projeto-thumb:hover img {
+    transform: scale(1.04);
+}
+
+/* Overlay escuro com texto "Visitar site" */
+.projeto-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(60, 52, 137, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;               /* invisível por padrão */
+    transition: opacity 0.3s ease;
+}
+
+.projeto-thumb:hover .projeto-overlay {
+    opacity: 1;               /* aparece ao passar o mouse */
+}
+
+.projeto-overlay span {
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Informações abaixo da imagem */
+.projeto-info {
+    padding: 1.4rem 1.6rem;
+}
+
+.projeto-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--verde);
+    background: rgba(93,202,165,0.1);
+    padding: 3px 10px;
+    border-radius: 50px;
+    margin-bottom: 0.7rem;
+    text-transform: uppercase;
+}
+
+.projeto-info h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    color: var(--roxo-escuro);
+    margin: 0 0 0.5rem;
+}
+
+.projeto-info p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.projeto-link {
+    color: var(--roxo-medio);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s, gap 0.2s;
+}
+
+.projeto-link:hover {
+    color: var(--verde);
+}
+
+/* Mobile — imagem menor no celular */
+@media (max-width: 600px) {
+    .projeto-thumb {
+        height: 160px;
+    }
+
+    .projeto-info {
+        padding: 1.1rem;
+    }
 }
