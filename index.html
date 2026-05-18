@@ -157,26 +157,29 @@
             const msgErro    = document.getElementById('msg-erro');
             const msgOk      = document.getElementById('msg-sucesso');
 
-            if (nome.trim() === '') {
-                msgErro.textContent = '⚠ Por favor, preencha seu nome.';
-                msgErro.style.display = 'block'; msgOk.style.display = 'none'; return;
-            }
-            if (!email.includes('@') || !email.includes('.')) {
-                msgErro.textContent = '⚠ Digite um e-mail válido.';
-                msgErro.style.display = 'block'; msgOk.style.display = 'none'; return;
-            }
-            if (comentario.trim() === '') {
-                msgErro.textContent = '⚠ Por favor, escreva um comentário.';
-                msgErro.style.display = 'block'; msgOk.style.display = 'none'; return;
-            }
+    
             msgErro.style.display = 'none';
-            msgOk.textContent = '✓ Feedback enviado com sucesso! Obrigado.';
-            msgOk.style.display = 'block';
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('comentarios').value = '';
+            msgOk.style.display = 'none';
 
-            return true;
+    
+        if (nome.trim() === '') {
+            msgErro.textContent = '⚠ Por favor, preencha seu nome.';
+            msgErro.style.display = 'block';
+            return false; 
+        }
+        if (!email.includes('@') || !email.includes('.')) {
+            msgErro.textContent = '⚠ Digite um e-mail válido.';
+            msgErro.style.display = 'block';
+            return false; 
+        }
+        if (comentario.trim() === '') {
+            msgErro.textContent = '⚠ Por favor, escreva um comentário.';
+            msgErro.style.display = 'block';
+            return false; 
+        }
+
+
+        return true;
         }
 
         const btnTopo = document.getElementById('btn-topo');
