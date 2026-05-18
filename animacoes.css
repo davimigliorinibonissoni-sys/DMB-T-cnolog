@@ -1,0 +1,116 @@
+/* ================================================================
+   animacoes.css — DMB Técnolog
+   Animações e efeitos visuais do site
+================================================================ */
+
+/* ── Efeito 1: Fade in da página ─────────────────────────────── */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: aparecer 0.6s ease;
+}
+
+/* ── Efeito 2: Header animado em cascata ─────────────────────── */
+@keyframes descerDoTopo {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header h1 {
+    animation: descerDoTopo 0.6s ease both;
+}
+
+header p {
+    animation: descerDoTopo 0.6s 0.2s ease both;
+}
+
+/* ── Efeito 3: Cards sobem no hover ──────────────────────────── */
+.card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(83, 58, 183, 0.12);
+}
+
+/* ── Efeito 4: Botão aperta ao clicar ────────────────────────── */
+button {
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* ── Efeito 5: Sublinhado deslizante nos links ───────────────── */
+a {
+    position: relative;
+    display: inline-block;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #5DCAA5;
+    transition: width 0.25s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* Remove sublinhado animado em botões que não precisam */
+.btn-mapa::after,
+.hero-btn-primary::after,
+.hero-btn-outline::after,
+#menu-links a::after { display: none; }
+
+/* ── Efeito 6: Transição suave nos campos do formulário ──────── */
+input, textarea {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ── Efeito 7: Scroll Reveal ─────────────────────────────────── */
+.revelar {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.revelar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.revelar:nth-child(2) { transition-delay: 0.1s; }
+.revelar:nth-child(3) { transition-delay: 0.2s; }
+.revelar:nth-child(4) { transition-delay: 0.3s; }
+
+/* ── Respeita preferência de movimento reduzido ──────────────── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
